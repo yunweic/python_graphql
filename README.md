@@ -9,12 +9,15 @@ Python Flask backend using Graphene for GraphQL query
 3.  change .env file to set the environment for MySQL connection
 4.  cmd > `source .env`
 
-## Migrate MySQL database schema steps if needed
+## Create MySQL table
 
-1.  cmd > `flask db init`
-2.  cmd > `flask db -m migrate "my message"`
-3.  cmd > `flask db upgrade`
+1.  cmd > `python3 setup.py`
 
-## Run fraud detection web backend
+## Run web backend with GraphQL
 
 1.  cmd > `python3 app.py`
+
+## Access graphiql to test the GraphQL queries and mutations
+
+1. Access graphiql sandbox by visiting http://127.0.0.1:5000
+2. See the query and mutation format in the right panel
