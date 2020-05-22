@@ -1,0 +1,8 @@
+flask
+Flask-GraphQL
+flask_migrate
+flask_restful
+mysql-connector-python
+SQLAlchemy
+graphene
+graphene-sqlalchemy==2.3.0.dev1
