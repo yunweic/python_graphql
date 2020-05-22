@@ -1,6 +1,6 @@
-# Fraud detection web backend
+# Python Flask with GraphQL
 
-Graphen's web backend for fraud detection platform
+Python Flask backend using Graphene for GraphQL query
 
 ## Set up environment
 
