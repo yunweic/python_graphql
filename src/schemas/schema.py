@@ -25,7 +25,7 @@ class Mutation(graphene.ObjectType):
     createAgent = schema_agent.CreateAgent.Field()
     updateAgent = schema_agent.UpdateAgent.Field()
 
-    # Customer mutatio
+    # Customer mutation
     createCustomer = schema_customer.CreateCustomer.Field()
     updateCustomer = schema_customer.UpdaterCustomer.Field()
 
