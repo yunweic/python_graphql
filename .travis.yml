@@ -10,6 +10,7 @@ before_script:
   - echo "no tests"
 
 script:
+  - cd backend_graphql
   - docker --version # print the version for logging
   - docker build -t graphql .
   - docker tag graphql stevenchang219/graphql:latest
