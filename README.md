@@ -26,7 +26,7 @@ Python Flask backend using Graphene for GraphQL query. It uses SQLAlchemy to int
 
 1. docker build -t <IMAGE_NAME> <PATH_TO_DOCKERFILE>
 
-## Continus integraiton
+## Continuous integraiton
 
 1.  TravisCI will automatically build the docker image and upload to dockerhub once code is pushed to master
 
