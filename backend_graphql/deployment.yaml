@@ -1,0 +1,60 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend-graphql
+  labels:
+    app: backend-graphql
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: backend-graphql
+  template:
+    metadata:
+      labels:
+        app: backend-graphql
+    spec:
+      containers:
+      - name: graphql
+        image: yunwei0219/graphql
+        ports:
+        - containerPort: 443
+        env:
+          - name: MYSQL_USER
+            valueFrom:
+              secretKeyRef:
+                name: env-secret
+                key: MYSQL_USER
+          - name: MYSQL_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: env-secret
+                key: MYSQL_PASSWORD
+          - name: MYSQL_IP
+            valueFrom:
+              configMapKeyRef:
+                name: env-config           # The ConfigMap this value comes from.
+                key: MYSQL_IP         # The key to fetch.
+          - name: MYSQL_PORT
+            valueFrom:
+              configMapKeyRef:
+                name: env-config           # The ConfigMap this value comes from.
+                key: MYSQL_PORT         # The key to fetch.
+          - name: FLASK_ENV
+            valueFrom:
+              configMapKeyRef:
+                name: env-config           # The ConfigMap this value comes from.
+                key: FLASK_ENV         # The key to fetch.
+          - name: MYSQL_DATABASE
+            valueFrom:
+              configMapKeyRef:
+                name: env-config           # The ConfigMap this value comes from.
+                key: MYSQL_DATABASE         # The key to fetch.
+        volumeMounts:
+          - name: aws-secret
+            mountPath: "/root/.aws/"
+            readOnly: true
+      volumes:
+        - name: aws-secret
+          secret:
+            secretName: env-secret
