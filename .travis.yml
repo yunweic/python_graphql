@@ -14,7 +14,11 @@ script:
   - docker --version # print the version for logging
   - docker build -t graphql .
   - docker tag graphql yunwei0219/graphql:latest
+  - cd ../backend_login
+  - docker build -t graphql-login .
+  - docker tag graphql-login yunwei0219/graphql-login:latest
 
 after_success:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
   - docker push yunwei0219/graphql
+  - docker push yunwei0219/graphql-login
