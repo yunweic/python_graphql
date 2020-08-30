@@ -30,6 +30,11 @@ spec:
               secretKeyRef:
                 name: env-secret
                 key: MYSQL_PASSWORD
+          - name: JWT_SECRET_KEY
+            valueFrom:
+              secretKeyRef:
+                name: env-secret
+                key: JWT_SECRET_KEY
           - name: MYSQL_IP
             valueFrom:
               configMapKeyRef:

@@ -5,6 +5,7 @@ from schemas.schema import schema
 from flask_jwt_extended import JWTManager
 import config
 
+
 def create_app():
     app = Flask(__name__)
 

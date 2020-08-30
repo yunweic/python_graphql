@@ -22,6 +22,8 @@ Python Flask backend using Graphene for GraphQL query. It uses SQLAlchemy to int
 
 1. Access graphiql sandbox by visiting http://127.0.0.1:5000
 2. See the query and mutation format in the right panel
+3. All the GraphQL mutation needs to have an authorization header that consist of valid JWT Token. Query doesn't need a JWT Token
+4. To get a valid JWT token, use the login REST API desribed in the sectino below.
 
 # Login application
 

@@ -12,7 +12,7 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1OTg3NTkwOTYsIm5iZiI6MTU5ODc1OTA5NiwianRpIjoiZTMzNTZjYmEtZDdlOC00ZTNhLTg3NmEtNzBhMTAzOGVlYmU1IiwiZXhwIjoxNjAxMzUxMDk2LCJpZGVudGl0eSI6Im1pbWkiLCJ0eXBlIjoicmVmcmVzaCJ9.0bGi7GcHTKI7wvnlgbFPeVpfjoL4KNx0qBTJJTl2Axs",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1OTg3OTkwNzAsIm5iZiI6MTU5ODc5OTA3MCwianRpIjoiMWNiN2E0YWUtMTAyZC00MGU3LWEyY2YtMTg1ZmZhMTAxZDU0IiwiZXhwIjoxNjAxMzkxMDcwLCJpZGVudGl0eSI6Im1pbWkiLCJ0eXBlIjoicmVmcmVzaCJ9.E2SF4TcD5Plgo8a3CaXj5sqZTMiafCHPfrgoRusmcnE",
 						"type": "text"
 					}
 				],
@@ -229,7 +229,13 @@
 			"name": "graphql-createAgent",
 			"request": {
 				"method": "POST",
-				"header": [],
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1OTg3OTkwNzAsIm5iZiI6MTU5ODc5OTA3MCwianRpIjoiMDg3YmM0MTAtNThmMC00NWVkLTkzNDQtZjI5MzJiY2Y1NDFjIiwiZXhwIjoxNTk4Nzk5OTcwLCJpZGVudGl0eSI6Im1pbWkiLCJmcmVzaCI6ZmFsc2UsInR5cGUiOiJhY2Nlc3MifQ.wKtdV05JxDD58qYGt3cVa3DLE-6TqWpDCDDfyXvTkv8",
+						"type": "text"
+					}
+				],
 				"body": {
 					"mode": "graphql",
 					"graphql": {
@@ -260,7 +266,13 @@
 			"name": "graphql-createCustomer",
 			"request": {
 				"method": "POST",
-				"header": [],
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1OTg3OTkwNzAsIm5iZiI6MTU5ODc5OTA3MCwianRpIjoiMDg3YmM0MTAtNThmMC00NWVkLTkzNDQtZjI5MzJiY2Y1NDFjIiwiZXhwIjoxNTk4Nzk5OTcwLCJpZGVudGl0eSI6Im1pbWkiLCJmcmVzaCI6ZmFsc2UsInR5cGUiOiJhY2Nlc3MifQ.wKtdV05JxDD58qYGt3cVa3DLE-6TqWpDCDDfyXvTkv8",
+						"type": "text"
+					}
+				],
 				"body": {
 					"mode": "graphql",
 					"graphql": {

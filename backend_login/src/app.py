@@ -17,10 +17,10 @@ import datetime
 
 from user import User
 
-users = [ User(1, 'yunwei', 'password'),
-        User(2, 'mimi', 'password') ]
+users = [User(1, "yunwei", "password"), User(2, "mimi", "password")]
 
 username_tabel = {u.username: u for u in users}
+
 
 def create_app():
 
@@ -71,6 +71,7 @@ def create_app():
         return jsonify(ret), 200
 
     return app
+
 
 if __name__ == "__main__":
 
