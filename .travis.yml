@@ -17,8 +17,12 @@ script:
   - cd ../backend_login
   - docker build -t graphql-login .
   - docker tag graphql-login yunwei0219/graphql-login:latest
+  - cd ..
+  - docker build -t reverse-proxy .
+  - docker tag reverse-proxy yunwei0219/reverse-proxy:latest
 
 after_success:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
   - docker push yunwei0219/graphql
   - docker push yunwei0219/graphql-login
+  - docker push yunwei0219/reverse-proxy

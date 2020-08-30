@@ -1,0 +1,55 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend-graphql-login
+  labels:
+    app: backend-graphql-login
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: backend-graphql-login
+  template:
+    metadata:
+      labels:
+        app: backend-graphql-login
+    spec:
+      containers:
+      - name: graphql-login
+        image: yunwei0219/graphql-login
+        ports:
+        - containerPort: 443
+        env:
+          - name: SECRET_KEY
+            valueFrom:
+              secretKeyRef:
+                name: env-secret-login
+                key: SECRET_KEY
+          - name: JWT_SECRET_KEY
+            valueFrom:
+              secretKeyRef:
+                name: env-secret-login
+                key: JWT_SECRET_KEY
+          - name: LOGIN_IP_ADDRESS
+            valueFrom:
+              configMapKeyRef:
+                name: env-config-login           # The ConfigMap this value comes from.
+                key: LOGIN_IP_ADDRESS         # The key to fetch.
+          - name: LOGIN_PORT
+            valueFrom:
+              configMapKeyRef:
+                name: env-config-login           # The ConfigMap this value comes from.
+                key: LOGIN_PORT         # The key to fetch.
+          - name: FLASK_ENV
+            valueFrom:
+              configMapKeyRef:
+                name: env-config           # The ConfigMap this value comes from.
+                key: FLASK_ENV         # The key to fetch.
+        volumeMounts:
+          - name: aws-secret
+            mountPath: "/root/.aws/"
+            readOnly: true
+      volumes:
+        - name: aws-secret
+          secret:
+            secretName: env-secret-login
