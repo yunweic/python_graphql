@@ -66,4 +66,14 @@ Login REST API using Python Flask. It currently uses hardcoded credentials. Ngin
 ## Verify the service is working
 
 1. cmd > `kubectl port-forward service/reverseproxy-svc 8080:8080` to make the service accessible locally
-2. 
+2. use the url if request is going through reverse proxy: `http://127.0.0.1:8080/api/v0/graphql` or `http://127.0.0.1:8080/api/v0/user/<login_or_refresh>`
+3. cmd > `kubectl port-forward service/svc-graphql 8100:443 ` to make the graphql service accessible locally
+4. use https if request is going directly to graphql: `https://127.0.0.1:8100/graphql`
+5. cmd > `kubectl port-forward service/svc-graphql-login 8101:443 ` to make the graphql-login service accessible locally
+6. use https if request is going directly to graphql-login: `https://127.0.0.1:8100/<login_or_refresh>`
+
+# TODO in the future
+1. Add user management REST API like create/update/delete user
+2. Put user information into a database
+3. Set up SSL termination at the reverse proxy
+
