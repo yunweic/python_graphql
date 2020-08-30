@@ -4,7 +4,7 @@ from database.base import db_session
 from database.model_customer import ModelCustomer
 import graphene
 import utils
-
+from flask_jwt_extended import jwt_required
 
 # Create a generic class to mutualize description of customer attributes for both queries and mutations
 class CustomerAttribute:
@@ -40,6 +40,7 @@ class CreateCustomer(graphene.Mutation):
     class Arguments:
         input = CreateCustomerInput(required=True)
 
+    @jwt_required
     def mutate(self, info, input):
         data = utils.input_to_dictionary(input)
         data["created"] = datetime.utcnow()
@@ -68,6 +69,7 @@ class UpdaterCustomer(graphene.Mutation):
     class Arguments:
         input = UpdateCustomerInput(required=True)
 
+    @jwt_required
     def mutate(self, info, input):
         data = utils.input_to_dictionary(input)
         data["edited"] = datetime.utcnow()

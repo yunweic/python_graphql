@@ -76,4 +76,5 @@ Login REST API using Python Flask. It currently uses hardcoded credentials. Ngin
 1. Add user management REST API like create/update/delete user
 2. Put user information into a database
 3. Set up SSL termination at the reverse proxy
+4. Add unit test
 

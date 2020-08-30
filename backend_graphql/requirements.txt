@@ -2,6 +2,7 @@ flask
 Flask-GraphQL
 flask_migrate
 flask_restful
+flask-jwt-extended
 mysql-connector-python
 SQLAlchemy
 graphene

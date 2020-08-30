@@ -4,7 +4,7 @@ from database.base import db_session
 from database.model_agent import ModelAgent
 import graphene
 import utils
-
+from flask_jwt_extended import jwt_required
 
 # Create a generic class to mutualize description of agent attributes for both queries and mutations
 class AgentAttribute:
@@ -34,6 +34,7 @@ class CreateAgent(graphene.Mutation):
     class Arguments:
         input = CreateAgentInput(required=True)
 
+    @jwt_required
     def mutate(self, info, input):
         data = utils.input_to_dictionary(input)
         data["created"] = datetime.utcnow()
@@ -60,6 +61,7 @@ class UpdateAgent(graphene.Mutation):
     class Arguments:
         input = UpdateAgentInput(required=True)
 
+    @jwt_required
     def mutate(self, info, input):
         data = utils.input_to_dictionary(input)
         data["edited"] = datetime.utcnow()
