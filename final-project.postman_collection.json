@@ -1,0 +1,314 @@
+{
+	"info": {
+		"_postman_id": "478e82f6-db7e-46b2-b07e-694b84a439f6",
+		"name": "final-project",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "refresh",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1OTg3NTkwOTYsIm5iZiI6MTU5ODc1OTA5NiwianRpIjoiZTMzNTZjYmEtZDdlOC00ZTNhLTg3NmEtNzBhMTAzOGVlYmU1IiwiZXhwIjoxNjAxMzUxMDk2LCJpZGVudGl0eSI6Im1pbWkiLCJ0eXBlIjoicmVmcmVzaCJ9.0bGi7GcHTKI7wvnlgbFPeVpfjoL4KNx0qBTJJTl2Axs",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8080/api/v0/user/refresh",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v0",
+						"user",
+						"refresh"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"username\" : \"mimi\",\n\t\"password\" : \"password\"\n}",
+					"options": {
+						"raw": {}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8080/api/v0/user/login",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v0",
+						"user",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "graphql-customerList",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODkyMjI4NDcsIm5iZiI6MTU4OTIyMjg0NywianRpIjoiMWQ5NWY2OTgtNmVkZS00ZjI0LTk3ZWEtOTcwNTBmN2I1N2EwIiwiZXhwIjoxNTg5MjIzNzQ3LCJpZGVudGl0eSI6InJlYWQtb25seS1hZG1pbiIsImZyZXNoIjpmYWxzZSwidHlwZSI6ImFjY2VzcyJ9.Y4VSTkAsY2iDxxFqCQh2tsFBUq9J3mND_yYlQ_z1sQ4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1OTMwMTY3NjUsIm5iZiI6MTU5MzAxNjc2NSwianRpIjoiZTUxOTJhY2ItYzkyOC00MTgzLTkxOTctZTM0MDg1ZmI4NmNmIiwiZXhwIjoxNTkzMDE3NjY1LCJpZGVudGl0eSI6Im5ld3RvbiIsImZyZXNoIjpmYWxzZSwidHlwZSI6ImFjY2VzcyJ9._119XObacUC5rMxCmgIL89TwBHPadV3xtVnrRY-8e1M",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query{\n  customerList {\n    edges {\n      node {\n        id\n        name\n        age\n        agentId\n        created\n        edited\n      }\n    }\n  }\n}",
+						"variables": ""
+					},
+					"options": {
+						"graphql": {}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8080/api/v0/graphql",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v0",
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "graphql-agentList",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query{\n  agentList {\n    edges {\n      node {\n        id\n        name\n        age\n        created\n        edited\n        customerList {\n          edges {\n            node {\n              id\n              name\n              age\n              created\n              edited\n            }\n          }\n        }\n      }\n    }\n  }\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8080/api/v0/graphql",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v0",
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "graphql-agent",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query{\n  agent(id:\"QWdlbnQ6MQ==\"){\n    name\n   \tage\n  \tid\n    edited\n    created\n    customerList {\n      edges {\n        node {\n          id\n          name\n          age\n          agentId\n          created\n          edited\n        }\n      }\n    }\n  }\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8080/api/v0/graphql",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v0",
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "graphql-customer",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query{\n  customer(id:\"Q3VzdG9tZXI6MQ==\") {\n    id\n    name\n    age\n    agentId\n    created\n    edited\n  }\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8080/api/v0/graphql",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v0",
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "graphql-createAgent",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation{\n  createAgent(input:{\n    age:42\n    name:\"Judy\"\n  }){\n    agent {\n      id\n    }\n  }\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8080/api/v0/graphql",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v0",
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "graphql-createCustomer",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation{\n  createCustomer(input:{\n    name:\"Du\"\n    age:22\n    agentId:\"QWdlbnQ6Mw==\"\n  }){\n    customer {\n      id\n    }\n  }\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8080/api/v0/graphql",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v0",
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "281683d3-c023-4d5c-b505-7c60c75d3cae",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "7ed88770-ffd5-459d-9103-d5c757fe455b",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
